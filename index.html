@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --card-color: #fff;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header button {
+            margin-top: 10px;
+            background: var(--secondary-color);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .task-input {
+            background-color: var(--card-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .task-input form {
+            display: flex;
+            flex-direction: column;
+        }
+        .task-input input, .task-input textarea, .task-input button {
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task-input button {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+        }
+        .task-board {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .column {
+            width: 30%;
+            background-color: var(--card-color);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .column h3 {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .task-list {
+            min-height: 200px;
+        }
+        footer {
+            margin-top: 3rem;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gestor de Tareas</h1>
+        <button id="theme-toggle">Modo Oscuro</button>
+    </header>
+    
+    <main>
+        <section class="task-input">
+            <h2>Agregar Nueva Tarea</h2>
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Título de la tarea" required>
+                <textarea id="task-desc" placeholder="Descripción de la tarea" rows="3"></textarea>
+                <button type="submit">Agregar Tarea</button>
+            </form>
+        </section>
+        
+        <section class="task-board">
+            <div class="column" id="pending">
+                <h3>Pendiente</h3>
+                <div class="task-list" id="pending-tasks"></div>
+            </div>
+            <div class="column" id="in-progress">
+                <h3>En Progreso</h3>
+                <div class="task-list" id="progress-tasks"></div>
+            </div>
+            <div class="column" id="completed">
+                <h3>Completado</h3>
+                <div class="task-list" id="completed-tasks"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Gestor de Tareas.      Derechos reservados Danny894</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
